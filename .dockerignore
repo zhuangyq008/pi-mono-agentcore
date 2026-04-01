@@ -1,0 +1,10 @@
+node_modules
+dist
+.git
+test-*.sh
+run-all-tests.sh
+cleanup-tests.sh
+TEST_RESULTS.md
+TESTING.md
+docs
+deploy

@@ -1,0 +1,6 @@
+node_modules/
+dist/
+*.log
+/tmp/
+.env
+TEST_RESULTS.md

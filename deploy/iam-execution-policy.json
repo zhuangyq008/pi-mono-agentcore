@@ -1,0 +1,108 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "BedrockModelInvocation",
+      "Effect": "Allow",
+      "Action": [
+        "bedrock:InvokeModel",
+        "bedrock:InvokeModelWithResponseStream"
+      ],
+      "Resource": [
+        "arn:aws:bedrock:*::foundation-model/anthropic.claude-sonnet-4-6-v1:0",
+        "arn:aws:bedrock:*::foundation-model/anthropic.claude-sonnet-4-6",
+        "arn:aws:bedrock:*:*:inference-profile/*"
+      ]
+    },
+    {
+      "Sid": "S3SkillsRead",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::*"
+      ]
+    },
+    {
+      "Sid": "CloudWatchLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:log-group:/aws/bedrock-agentcore/*"
+    },
+    {
+      "Sid": "XRayTracing",
+      "Effect": "Allow",
+      "Action": [
+        "xray:PutTraceSegments",
+        "xray:PutTelemetryRecords"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ECRImagePull",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage",
+        "ecr:GetAuthorizationToken"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ReadOnlyAWSAccess",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Describe*",
+        "s3:Get*",
+        "s3:List*",
+        "rds:Describe*",
+        "elasticloadbalancing:Describe*",
+        "cloudwatch:GetMetricData",
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:ListMetrics",
+        "logs:FilterLogEvents",
+        "logs:GetLogEvents",
+        "logs:DescribeLogGroups",
+        "iam:Get*",
+        "iam:List*",
+        "lambda:Get*",
+        "lambda:List*",
+        "ecs:Describe*",
+        "ecs:List*",
+        "eks:Describe*",
+        "eks:List*",
+        "ce:GetCostAndUsage",
+        "ce:GetCostForecast",
+        "ce:GetRightsizingRecommendation",
+        "ce:GetReservationUtilization",
+        "ce:GetSavingsPlansUtilizationDetails",
+        "route53:List*",
+        "route53:Get*",
+        "cloudfront:List*",
+        "cloudfront:Get*",
+        "cloudtrail:LookupEvents",
+        "health:DescribeEvents",
+        "guardduty:ListDetectors",
+        "guardduty:GetDetector",
+        "guardduty:ListFindings",
+        "guardduty:GetFindings",
+        "securityhub:GetFindings",
+        "securityhub:DescribeHub",
+        "budgets:DescribeBudgets",
+        "savingsplans:DescribeSavingsPlans",
+        "sts:GetCallerIdentity",
+        "kms:ListKeys",
+        "kms:DescribeKey",
+        "kms:GetKeyPolicy",
+        "kms:GetKeyRotationStatus"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
