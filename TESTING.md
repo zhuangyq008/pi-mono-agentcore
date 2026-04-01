@@ -171,7 +171,7 @@ print(json.dumps({
   'result': data.get('result','')[:500],
   'messages': len(data.get('messages',[])),
   'status': 'ok'
-}, indent=2))
+}, indent=2, ensure_ascii=False))
 "
 }
 ```
